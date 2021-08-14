@@ -9,22 +9,15 @@ function generateId(){
 
 module.exports = (sequelize) => {
 
-  sequelize.define('breed', {
+  sequelize.define('temperament', {
     id: {
       type: DataTypes.UUID,
       defaultValue: () => generateId(),
       primaryKey: true,
     },
-    height: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    weight: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    life_span: {
-      type: DataTypes.STRING,
-    }
   });
 };
