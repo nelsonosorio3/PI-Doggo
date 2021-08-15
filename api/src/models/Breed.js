@@ -10,10 +10,9 @@ function generateId(){
 module.exports = (sequelize) => {
 
   sequelize.define('breed', {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: () => generateId(),
-      primaryKey: true,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     height: {
       type: DataTypes.STRING,
