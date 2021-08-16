@@ -32,6 +32,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Dog, Breed, Temperament } = sequelize.models;
 
+var idBreed = 1000;
+Breed.addHook("beforeCreate", (breed, options) =>{
+  breed.id = idBreed
+  idBreed++
+});
+
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 Breed.belongsToMany(Temperament, {through: "breed_temperament"});

@@ -2,14 +2,16 @@ const { DataTypes } = require('sequelize');
 
 let id = 0;
 
-function generateId(){
-  id++;
-  return `custom${id}`
-}
+
 
 module.exports = (sequelize) => {
 
   sequelize.define('breed', {
+    // id:{
+    //   type: DataTypes.INTEGER,
+    //   primaryKey: true,
+    //   defaultValue: ++id,
+    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +26,10 @@ module.exports = (sequelize) => {
     },
     life_span: {
       type: DataTypes.STRING,
+    },
+    img: {
+      type: DataTypes.STRING,
+      defaultValue: "https://jorgeraziel.com/wp-content/themes/consultix/images/no-image-found-360x260.png",
     }
   });
 };

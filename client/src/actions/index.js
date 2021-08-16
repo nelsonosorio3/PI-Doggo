@@ -81,8 +81,14 @@ export function goN(payload){
 };
 
 
-export function getDetails(payload){
-  return {type: GET_BREED_DETAILS, payload};
+export function getDetails(id){
+  return function(details){
+    return fetch(`http://localhost:3001/dogs/${id}`)
+      .then(response => response.json())
+      .then(json => {
+        details({type: GET_BREED_DETAILS, payload: json});
+      });
+  };
 };
 
 

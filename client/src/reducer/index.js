@@ -17,8 +17,8 @@ const {LOAD_RESULTS,
 
 const initialState = {
   results: [],
-  currentPageResults = [],
-  breedDetails = {},
+  currentPageResults: [],
+  breedDetails: {},
 }
 
 const dogs = (state = initialState, action) =>{
@@ -36,17 +36,17 @@ const dogs = (state = initialState, action) =>{
     case FILTER_BY_TEMPERAMENT:
       return{
         ...state,
-        results: state.results.filter(result => payload.temperament.includes(result.temperament))
+        results: state.results.filter(result => action.payload.temperament.includes(result.temperament))
       }
     case FILTER_BY_FROM_API:
       return{
         ...state,
-        results: state.results.filter(result => !payload.id.includes(result.temperament))
+        results: state.results.filter(result => !action.payload.id.includes(result.temperament))
       }
     case FILTER_BY_FROM_USER:
       return{
         ...state,
-        results: state.results.filter(result => payload.id.includes(result.temperament))
+        results: state.results.filter(result => action.payload.id.includes(result.temperament))
       }
     case ORDER_BY_ALPHA_ASC:
       return{

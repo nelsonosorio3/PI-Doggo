@@ -99,5 +99,11 @@ conn.sync({ force: true }).then(() => {
       weight: "20 - 30",
       life_span: "10 - 15",
     })
+    Breed.create({
+      name: "test2",
+      height: "17 - 24",
+      weight: "25 - 30",
+      life_span: "5 - 15",
+    })
   });
 });

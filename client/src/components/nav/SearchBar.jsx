@@ -11,8 +11,14 @@ export function SearchBar() {
             <button id="searchButton">🔎</button>
           </Link>
       </div >
-      <div id="advancedSearch">
-        <button id="advanceButton">Advance Search</button>
+      <div id="searchOptions">
+        <div>
+        <button id="advanceButton">Advanced Search</button>
+        </div>
+        <div>
+        <button id="filterButton">Filter Search</button>
+
+        </div>
       </div>
       
     </div>
