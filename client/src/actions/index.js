@@ -12,6 +12,7 @@ const {LOAD_RESULTS,
   GO_TO_NEXT_PAGE,
   GO_TO_PREVIOUS_PAGE,
   GO_TO_N_PAGE,
+  GET_BREED_DETAILS,
   ADD_BREED_TO_DATABASE,} = require("../action-types");
 
 export function loadResults(breed){
@@ -79,6 +80,25 @@ export function goN(payload){
   return {type: GO_TO_N_PAGE, payload};
 };
 
-export function addBreed(payload){
-  return {type: ADD_BREED_TO_DATABASE, payload};
+
+export function getDetails(payload){
+  return {type: GET_BREED_DETAILS, payload};
+};
+
+
+export function addBreed(data){
+  return function(results){
+    return fetch("http://localhost:3001",{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name: data.name,})
+    })
+      .then(response => response.json())
+      .then(json => {
+        results({type: LOAD_RESULTS, payload: json});
+      });
+  };
 };
