@@ -1,0 +1,38 @@
+#searchBar{
+  width: 200px;
+  border-radius: 10px;
+  border-style: none;
+}
+
+#searchBarContainer{
+  display: flex;
+  justify-content: space-evenly;
+  width: 310px;
+  padding: 5px;
+}
+#advancedSearch{
+  padding: 5px;
+  width: 240px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#advanceButton{
+  padding: 5px;
+  background: none;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+}
+#searchButton{
+  border-radius: 100%;
+  border: none;
+  background-color: rgb(253, 238, 24);
+  font-weight: bolder;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  /* padding-left: 5px;
+  padding-right: 5px; */
+  
+}

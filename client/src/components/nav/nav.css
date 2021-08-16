@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Segoe UI', sans-serif;
+  src: url(http://fonts.cdnfonts.com/css/segoe-ui-4);
+}
+
+#navBar{
+  background-color: rgb(8, 8, 37);
+  text-emphasis-color: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  position: sticky;
+}
+A{
+  color: aliceblue;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 540px) {
+  #navBar div{
+    padding: 4px;
+  }
+  #navBar div:nth-child(1) {order:1}
+  #navBar div:nth-child(2) {order:3}
+  #navBar div:nth-child(3) {order:2}
+}
