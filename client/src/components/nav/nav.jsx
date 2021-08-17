@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import SearchBar from "./SearchBar";
 import "./nav.css"
 
@@ -8,17 +8,19 @@ export function Nav() {
 
     <div  id="navBar">
       <div id="home">
-        <Link to ="/home">
+        <NavLink activeClassName="navCurrent" to ="/home">
+          <div>
           HOME
-        </Link>
+          </div>
+        </NavLink>
       </div>
       <div>
         <SearchBar/>
       </div>
       <div>
-        <Link to ="/addDog">
+        <NavLink activeClassName="navCurrent" to ="/addDog">
           ADD YOUR OWN
-        </Link>
+        </NavLink>
       </div>
     </div>
   )

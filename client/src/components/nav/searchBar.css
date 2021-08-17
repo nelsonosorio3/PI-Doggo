@@ -43,5 +43,8 @@
   color: rgb(0, 0, 0);
   /* padding-left: 5px;
   padding-right: 5px; */
-  
+}
+
+.navCurrent{
+  color:rgb(194, 205, 233)
 }

@@ -1,0 +1,17 @@
+#pagination{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  color: aliceblue;
+}
+#pagination ul{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  color: aliceblue;
+  list-style: none;
+}
+#pagination ul li{
+  padding-left: 10px;
+  padding-right: 10px;
+}
