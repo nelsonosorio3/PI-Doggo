@@ -1,0 +1,107 @@
+#formContainer{
+  background-color:rgb(194, 205, 233);
+  height: 75.9vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#formContainer form{
+  padding-top: 5px;
+  padding-bottom: 16px;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: wrap;
+  line-height: 0.1px;
+}
+
+#formContainer form input{
+  background-color: rgb(194, 205, 233);
+  border-radius: 10px;
+}
+
+#formContainer form input:last-child{
+  background-color: rgb(8, 8, 37);
+  color:aliceblue;
+  border-radius: 6px 6px 20px 20px;
+  cursor: pointer
+}
+
+form label{
+  color: aliceblue;
+  align-self: center;
+  /* font-size: 14px; */
+}
+
+#circle{
+  background-color: rgb(110, 98, 98);
+  width: 500px;
+  height: 500px;
+  border-radius: 40% 40% 50% 50%;
+  display: absolute;
+  left: 50%;
+  align-self: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#nostrilL{
+  background-color:rgb(194, 205, 233);
+  width: 100px;
+  height: 100px;
+  border-radius: 40% 40% 50% 50%;
+  display: absolute;
+  left: 50%;
+  align-self: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-250%, 100%);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  z-index: 1;
+}
+
+#nostrilR{
+  background-color:rgb(194, 205, 233);
+  width: 100px;
+  height: 100px;
+  border-radius: 40% 40% 50% 50%;
+  display: absolute;
+  left: 50%;
+  align-self: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(150%, 100%);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  z-index: 1;
+}
+
+
+@media only screen and (max-width: 540px) {
+  #formContainer{
+    min-height: 64.94vh;
+    max-height: 30vh;
+  }
+  #circle{
+    width: 400px;
+    height: 400px;
+    top: 52%;
+  }
+  #nostrilL{
+    transform: translate(-220%, 80%)
+  }
+  #nostrilR{
+    transform: translate(120%, 80%)
+  }
+}

@@ -1,7 +1,8 @@
 #searchBar{
   width: 200px;
   border-radius: 10px;
-  border-style: none;
+  /* border-style: none; */
+  background-color: aliceblue;
 }
 
 #searchBarContainer{

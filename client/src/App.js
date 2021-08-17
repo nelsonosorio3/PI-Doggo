@@ -26,7 +26,7 @@ export function App() {
             <Route path="/dog">
               <DogDetails/>
             </Route>
-            <Route path="/add">
+            <Route path="/addDog">
               <AddDog/>
             </Route>
           </Switch>
