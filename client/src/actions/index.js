@@ -100,7 +100,11 @@ export function addBreed(data){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({name: data.name,})
+      body: JSON.stringify({name: data.name,
+                            height: `${data.minHeight} - ${data.maxHeight}`,
+                            weight: `${data.minWeight} - ${data.maxWeight}`,
+                            life_span: `${data.minLife_span} - ${data.maxLife_span}`,
+                            temperaments: data.temperaments.split(",")})
     })
       .then(response => response.json())
       .then(json => {
