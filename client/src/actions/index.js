@@ -18,11 +18,20 @@ const {LOAD_RESULTS,
 
 export function loadResults(breed){
   return function(dispatch){
-    return fetch("http://localhost:3001")
+    if(breed.name){
+      return fetch(`http://localhost:3001/dogs?name=${breed.name}`)
       .then(response => response.json())
       .then(json => {
         dispatch({type: LOAD_RESULTS, payload: json});
       });
+    }
+    else{
+      return fetch(`http://localhost:3001/dogs`)
+      .then(response => response.json())
+      .then(json => {
+        dispatch({type: LOAD_RESULTS, payload: json});
+      });
+    }
   };
 };
 

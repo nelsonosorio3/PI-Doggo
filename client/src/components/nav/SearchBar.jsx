@@ -1,57 +1,80 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import "./searchBar.css"
-import { loadResults } from "../../actions";
+import { loadResults, filterTemperament } from "../../actions";
+import { connect } from "react-redux";
 
-export function SearchBar() {
+export function SearchBar(breed) {
 
   const [input, setInput] = useState({
     name: "",
-    minHeight: "",
-    maxHeight: "",
-    minWeight: "",
-    maxWeight: "",
-    minLife_span: "",
-    maxLife_span: "",
-    temperaments: "",
+    minHeight: "0",
+    maxHeight: "999",
+    minWeight: "0",
+    maxWeight: "999",
+    minLife_span: "0",
+    maxLife_span: "999",
+    temperament: "",
+    database: true,
+    userAdded: true,
   });
 
   const [display, setDisplay] = useState({advance: false, order:false});
 
   const showAdvance = function(){
-    let temp;
-    if(display.order && !display.advance) temp = false;
-    setDisplay({...display, advance: display.advance ? false : true, order: temp});
+    setDisplay({advance: display.advance ? false : true, order: false});
   };
 
   const showOrder = function(){
-    let temp;
-    if(display.order && !display.advance) temp = false;
-    setDisplay({...display, order: display.order ? false : true, advance: temp})
+    setDisplay({order: display.order ? false : true, advance: false})
   }
   
 
-  // const handleSubmit = event =>{
-  //   event.preventDefault();
-  //   breed.addBreed(input);
-  // };
+  const handleInputChange = function(event){
+    setInput({
+      ...input,
+      [event.target.name]: event.target.value,
+    });
     
-  
+  };
+
+  const handleCheckBoxChangeDataBase = function(event){
+    setInput({
+      ...input,
+      database: !input.database
+    })
+  }
+  const handleCheckBoxChangeUserAdded = function(event){
+    setInput({
+      ...input,
+      userAdded: !input.userAdded
+    })
+  }
+
+  const handleSubmit = event =>{
+    event.preventDefault();
+    breed.loadResults(input);
+    breed.filterTemperament(input);
+  };
+    
+  useEffect(()=>{
+
+  });
   return(
     <div>
       <div id="searchBarContainer">
-        <form>
-        <input type="text" name ="searchBar" placeholder="Search for a specific breed..." id="searchBar"/>
+        <form onSubmit={handleSubmit}>
+        <input type="text" name ="name" placeholder="Search for a specific breed..." id="searchBar"  onChange={handleInputChange}/>
           <Link to ="/home">
-            <button id="searchButton">🔎</button>
+            <button id="searchButton" onClick={handleSubmit}>🔎</button>
           </Link>
           <div id="advanceBox" style={{ display: display.advance ? "flex" : "none" }}>
             <label for="temperament">Temperament: </label>
-            <input type="text" name="temperament" placeholder="playful"/><br/>
+            <input type="text" name="temperament" placeholder="playful" onChange={handleInputChange}/><br/>
             <label for="database">From database</label>
-            <input type="checkbox" name="database" checked/><br/>
+            <input type="checkbox" name="database" checked={input.database} onChange={handleCheckBoxChangeDataBase}/><br/>
             <label for="userAdded">From user</label>
-            <input type="checkbox" name="userAdded" checked/>
+            <input type="checkbox" name="userAdded" checked={input.userAdded} onChange={handleCheckBoxChangeUserAdded}/>
           </div>
           </form>
           <div id="orderBox" style={{display: display.order ? "flex": "none"}}>
@@ -67,7 +90,7 @@ export function SearchBar() {
         <button id="advanceButton" onClick={showAdvance}>Advanced Search</button>
         </div>
         <div>
-        <button id="orderButton" onClick={showOrder}>Order Search</button>
+        <button id="orderButton"  onClick={showOrder}>Order Search</button>
         </div>
       </div>
       
@@ -75,4 +98,17 @@ export function SearchBar() {
   )
 }
 
-export default SearchBar;
+function mapStateToprops(state){
+  return{
+    breed: state
+  };
+};
+
+function mapDispatchToProps(dispatch){
+  return{
+    loadResults: breed => dispatch(loadResults(breed)),
+    filterTemperament: breed => dispatch(filterTemperament(breed))
+  };
+};
+
+export default connect(mapStateToprops, mapDispatchToProps)(SearchBar);

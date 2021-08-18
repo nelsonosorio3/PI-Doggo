@@ -17,6 +17,7 @@ const {LOAD_RESULTS,
 
 const initialState = {
   results: [],
+  filterResults: [],
   currentPageResults: [],
   breedDetails: {},
 }
@@ -36,12 +37,12 @@ function rootReducer (state = initialState, action) {
     case FILTER_BY_TEMPERAMENT:
       return{
         ...state,
-        results: state.results.filter(result => action.payload.temperament.includes(result.temperament))
+        filterResults: state.results.filter(result => result.temperaments.includes(action.payload.temperament.charAt(0).toUpperCase() + action.payload.temperament.toLowerCase().slice(1)))
       }
     case FILTER_BY_FROM_API:
       return{
         ...state,
-        results: state.results.filter(result => !action.payload.id.includes(result.temperament))
+        filterResults: state.results.filter(result => !action.payload.id.includes(result.temperament))
       }
     case FILTER_BY_FROM_USER:
       return{
