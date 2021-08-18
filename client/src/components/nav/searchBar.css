@@ -27,7 +27,7 @@
   cursor: pointer;
   outline: inherit;
 }
-#filterButton{
+#orderButton{
   padding: 5px;
   background: none;
   color: aliceblue;
@@ -48,4 +48,45 @@
 
 .navCurrent{
   color:rgb(194, 205, 233)
+}
+
+#advanceBox{
+  background-color:rgb(8, 8, 37);
+  z-index: 3;
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top:200px;
+  border-radius: 10%;
+  align-content: center;
+  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 18px;
+}
+#advanceBox input{
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+#orderBox{
+  background-color:rgb(8, 8, 37);
+  z-index: 3;
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top:200px;
+  border-radius: 10%;
+  align-content: center;
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  line-height: 18px;
+}
+#orderBox button{
+  border-radius: 10px;
+  background-color: rgb(253, 238, 24);
 }

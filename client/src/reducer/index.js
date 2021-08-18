@@ -21,7 +21,7 @@ const initialState = {
   breedDetails: {},
 }
 
-const dogs = (state = initialState, action) =>{
+function rootReducer (state = initialState, action) {
   switch(action.type){
     case LOAD_RESULTS:
       return{
@@ -108,4 +108,4 @@ const dogs = (state = initialState, action) =>{
   }
 };
 
-export default dogs;
+export default rootReducer;

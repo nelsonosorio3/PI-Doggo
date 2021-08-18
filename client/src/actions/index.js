@@ -15,12 +15,13 @@ const {LOAD_RESULTS,
   GET_BREED_DETAILS,
   ADD_BREED_TO_DATABASE,} = require("../action-types");
 
+
 export function loadResults(breed){
-  return function(results){
+  return function(dispatch){
     return fetch("http://localhost:3001")
       .then(response => response.json())
       .then(json => {
-        results({type: LOAD_RESULTS, payload: json});
+        dispatch({type: LOAD_RESULTS, payload: json});
       });
   };
 };
@@ -82,19 +83,19 @@ export function goN(payload){
 
 
 export function getDetails(id){
-  return function(details){
+  return function(dispatch){
     return fetch(`http://localhost:3001/dogs/${id}`)
       .then(response => response.json())
       .then(json => {
-        details({type: GET_BREED_DETAILS, payload: json});
+        dispatch({type: GET_BREED_DETAILS, payload: json});
       });
   };
 };
 
 
 export function addBreed(data){
-  return function(results){
-    return fetch("http://localhost:3001",{
+  return function (dispatch){
+    return fetch("http://localhost:3001/dog",{
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -106,9 +107,9 @@ export function addBreed(data){
                             life_span: `${data.minLife_span} - ${data.maxLife_span}`,
                             temperaments: data.temperaments.split(",")})
     })
-      .then(response => response.json())
-      .then(json => {
-        results({type: LOAD_RESULTS, payload: json});
-      });
-  };
-};
+    .then(response => response.json())
+    .then(json => {
+      dispatch({type: ADD_BREED_TO_DATABASE, payload: json});
+    })
+  }
+}
