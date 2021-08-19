@@ -53,8 +53,8 @@ export function filterUser(payload){
 };
 
 
-export function orderAlphaAsc(payload){
-  return {type: ORDER_BY_ALPHA_ASC, payload};
+export function orderAlphaAsc(){
+  return {type: ORDER_BY_ALPHA_ASC};
 };
 
 export function orderAlphaDesc(payload){

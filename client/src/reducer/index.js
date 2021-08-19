@@ -52,12 +52,12 @@ function rootReducer (state = initialState, action) {
     case ORDER_BY_ALPHA_ASC:
       return{
         ...state,
-        results: state.results.sort((element1, element2) => (element1.name > element2.name) ? 1 : -1)
+        results: state.results.sort((element1, element2) => (element1.name.toLowerCase() > element2.name.toLowerCase()) ? 1 : -1)
       }
     case ORDER_BY_ALPHA_DESC:
       return{
         ...state,
-        results: state.results.sort((element1, element2) => (element1.name > element2.name) ? -1 : 1)
+        results: state.results.sort((element1, element2) => (element1.name.toLowerCase() > element2.name.toLowerCase()) ? -1 : 1)
       }
     case ORDER_BY_MIN_TO_MAX_WEIGHT:
       return{
