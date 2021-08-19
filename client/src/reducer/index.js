@@ -34,11 +34,11 @@ function rootReducer (state = initialState, action) {
         ...state,
         currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
       }
-    case FILTER_BY_TEMPERAMENT:
-      return{
-        ...state,
-        filterResults: state.results.filter(result => result.temperaments.includes(action.payload.temperament.charAt(0).toUpperCase() + action.payload.temperament.toLowerCase().slice(1)))
-      }
+    // case FILTER_BY_TEMPERAMENT:
+    //   return{
+    //     ...state,
+    //     results: state.results.filter(result => result.temperaments.includes(action.payload.temperament.charAt(0).toUpperCase() + action.payload.temperament.toLowerCase().slice(1)))
+    //   }
     case FILTER_BY_FROM_API:
       return{
         ...state,

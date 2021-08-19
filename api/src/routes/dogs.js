@@ -20,16 +20,15 @@ router.get("/", async (req, res)=>{
             apiBreeds.push({name: element.name, 
                             temperaments: element.temperament, 
                             img: element.image.url, 
-                            })
+                            id: element.id})
           }
         });
     for await (let element of dbBreeds) {
       apiBreeds.push({name: element.dataValues.name, 
                       temperament: element.dataValues.temperament, 
                       img: element.dataValues.img, 
-                      })
+                      id: element.dataValues.id})
     }
-    res.set("Access-Control-Allow-Origin","*")
     res.json(apiBreeds);
   }
   else{
@@ -44,7 +43,7 @@ router.get("/", async (req, res)=>{
             arraySearch.push({name: element.name, 
                               temperaments: element.temperament, 
                               img: element.image.url, 
-                              })
+                              id: element.id})
           }
         }
       });
@@ -62,10 +61,9 @@ router.get("/", async (req, res)=>{
       arraySearch.push({name: element.dataValues.name, 
                         temperament: element.dataValues.temperament, 
                         img: element.dataValues.img, 
-                        })
+                        id: element.dataValues.id})
     };
   
-    res.set("Access-Control-Allow-Origin","*")
     res.json(arraySearch)  
   }
   
