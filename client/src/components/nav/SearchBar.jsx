@@ -5,7 +5,8 @@ import { loadResults,
           filterTemperament, 
           orderAlphaAsc, 
           orderAlphaDesc, 
-           } from "../../actions";
+          orderMinToMaxWeight,
+          orderMaxToMinWeight} from "../../actions";
 import { connect } from "react-redux";
 
 export function SearchBar(breed) {
@@ -61,6 +62,13 @@ export function SearchBar(breed) {
   const handleOrderAlphaDesc = function(){
     breed.orderAlphaDesc()
   }
+  const handleOrderWeightAsc = function(){
+    breed.orderMinToMaxWeight()
+  }
+  const handleOrderWeightDesc = function(){
+    breed.orderMaxToMinWeight()
+  }
+
   const handleSubmit = event =>{
     event.preventDefault();
     breed.loadResults(input);
@@ -93,8 +101,8 @@ export function SearchBar(breed) {
           <div id="orderBox" style={{display: display.order ? "flex": "none"}}>
             <button className="oderButtons" onClick={handleOrderAlphaAsc}>Alphabetically [A-Z]</button>
             <button className="oderButtons" onClick={handleOrderAlphaDesc}>Alphabetically [Z-A]</button>
-            <button className="oderButtons">Weigth ascending</button>
-            <button className="oderButtons">Weigth descending</button>
+            <button className="oderButtons" onClick={handleOrderWeightAsc}>Weigth ascending</button>
+            <button className="oderButtons" onClick={handleOrderWeightDesc}>Weigth descending</button>
           </div>
           
       </div >
@@ -123,6 +131,8 @@ function mapDispatchToProps(dispatch){
     filterTemperament: breed => dispatch(filterTemperament(breed)),
     orderAlphaAsc: () => dispatch(orderAlphaAsc()),
     orderAlphaDesc: () => dispatch(orderAlphaDesc()),
+    orderMinToMaxWeight: () => dispatch(orderMinToMaxWeight()),
+    orderMaxToMinWeight: () => dispatch(orderMinToMaxWeight()),
 
   };
 };

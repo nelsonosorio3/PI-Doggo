@@ -57,16 +57,16 @@ export function orderAlphaAsc(){
   return {type: ORDER_BY_ALPHA_ASC};
 };
 
-export function orderAlphaDesc(payload){
-  return {type: ORDER_BY_ALPHA_DESC, payload};
+export function orderAlphaDesc(){
+  return {type: ORDER_BY_ALPHA_DESC};
 };
 
-export function oderMinToMaxWeight(payload){
-  return {type: ORDER_BY_MIN_TO_MAX_WEIGHT, payload};
+export function orderMinToMaxWeight(){
+  return {type: ORDER_BY_MIN_TO_MAX_WEIGHT};
 };
 
-export function oderMaxToMinWeight(payload){
-  return {type: ORDER_BY_MAX_TO_MIN_WEIGHT, payload};
+export function orderMaxToMinWeight(){
+  return {type: ORDER_BY_MAX_TO_MIN_WEIGHT};
 };
 
 
