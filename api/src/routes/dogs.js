@@ -69,7 +69,6 @@ router.get("/", async (req, res)=>{
       for await (let mood of element?.dataValues?.temperaments){
         arrayTemperaments.push(mood.dataValues.name)
       }
-      console.log(arrayTemperaments)
 
       arraySearch.push({name: element.dataValues.name, 
                         temperaments: arrayTemperaments.join(", ").toLocaleLowerCase(), 
@@ -126,13 +125,17 @@ router.get("/:id", async (req, res)=>{
   // Incluir los temperamentos asociados
   const {id} = req.params;
   const dbHasId = await Breed.findByPk(Number(id), {include: Temperament});
+  let arrayTemperaments = [];
+  for await(let mood of dbHasId.temperaments){
+    arrayTemperaments.push(mood.name)
+  }
   if (dbHasId) return res.json({id: dbHasId.id, 
                                 name: dbHasId.name, 
                                 height: dbHasId.height, 
                                 weight: dbHasId.weight, 
                                 life_span: dbHasId.life_span, 
                                 img: dbHasId.img, 
-                                temperaments: dbHasId.temperaments});
+                                temperaments: arrayTemperaments.join(" ,".toLocaleLowerCase())});
 
   const apiHasId = await fetch(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`) 
     .then(async response => await response.json())

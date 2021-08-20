@@ -20,9 +20,7 @@ router.post("/", async (req, res)=>{
     const [mood, isNew] = await Temperament.findOrCreate({
       where: {name: temperament}
     })
-    console.log(mood)
     await breed.addTemperament(mood)
-
   }
   
   // await breed.addTemperaments(temperaments.join(""));
