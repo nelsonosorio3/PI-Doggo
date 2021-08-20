@@ -18,7 +18,7 @@ router.get("/", async (req, res)=>{
         .then(async data => {
           for await (let element of data) {
             apiBreeds.push({name: element.name, 
-                            temperaments: element.temperament, 
+                            temperaments: element?.temperament?.toLocaleLowerCase(), 
                             img: element.image.url, 
                             id: element.id,
                             weight: element.weight.metric})
@@ -26,7 +26,7 @@ router.get("/", async (req, res)=>{
         });
     for await (let element of dbBreeds) {
       apiBreeds.push({name: element.dataValues.name, 
-                      temperament: element.dataValues.temperament, 
+                      temperament: element?.dataValues?.temperament?.toLocaleLowerCase(), 
                       img: element.dataValues.img, 
                       id: element.dataValues.id,
                       weight: element.dataValues.weight})
@@ -43,7 +43,7 @@ router.get("/", async (req, res)=>{
         for await (let element of data) {
           if(element.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())){
             arraySearch.push({name: element.name, 
-                              temperaments: element.temperament, 
+                              temperaments: element?.temperament?.toLocaleLowerCase(), 
                               img: element.image.url, 
                               id: element.id,
                               weight: element.weight.metric})
@@ -62,7 +62,7 @@ router.get("/", async (req, res)=>{
     );
     for await (let element of dbHasWord) {
       arraySearch.push({name: element.dataValues.name, 
-                        temperament: element.dataValues.temperament, 
+                        temperament: element?.dataValues?.temperament?.toLocaleLowerCase(), 
                         img: element.dataValues.img, 
                         id: element.dataValues.id,
                         weight: element.dataValues.weight})

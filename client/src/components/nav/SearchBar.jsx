@@ -69,10 +69,10 @@ export function SearchBar(breed) {
     breed.orderMaxToMinWeight()
   }
 
-  const handleSubmit = event =>{
+  const handleSubmit = async event =>{
     event.preventDefault();
     breed.loadResults(input);
-    breed.filterTemperament(input);
+    await breed.filterTemperament(input);
     
   };
 

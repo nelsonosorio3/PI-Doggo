@@ -41,7 +41,10 @@ export function loadCurrentPage(payload){
 
 
 export function filterTemperament(payload){
-  return {type: FILTER_BY_TEMPERAMENT, payload};
+  return function(delayedActionMiddleware){
+    if(payload.temperament !== "") return delayedActionMiddleware({type: FILTER_BY_TEMPERAMENT, payload});
+  }
+  
 };
 
 export function filterApi(payload){
