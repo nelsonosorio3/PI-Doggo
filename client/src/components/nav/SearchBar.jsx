@@ -2,7 +2,9 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import "./searchBar.css"
 import { loadResults, 
-          filterTemperament, 
+          filterTemperament,
+          filterApi,
+          filterUser,
           orderAlphaAsc, 
           orderAlphaDesc, 
           orderMinToMaxWeight,
@@ -69,10 +71,12 @@ export function SearchBar(breed) {
     breed.orderMaxToMinWeight()
   }
 
-  const handleSubmit = async event =>{
+  const handleSubmit =  event =>{
     event.preventDefault();
     breed.loadResults(input);
-    await breed.filterTemperament(input);
+    breed.filterTemperament(input);
+    breed.filterApi(input);
+    breed.filterUser(input);
     
   };
 
@@ -129,6 +133,8 @@ function mapDispatchToProps(dispatch){
   return{
     loadResults: breed => dispatch(loadResults(breed)),
     filterTemperament: breed => dispatch(filterTemperament(breed)),
+    filterApi: breed => dispatch(filterApi(breed)),
+    filterUser: breed => dispatch(filterUser(breed)),
     orderAlphaAsc: () => dispatch(orderAlphaAsc()),
     orderAlphaDesc: () => dispatch(orderAlphaDesc()),
     orderMinToMaxWeight: () => dispatch(orderMinToMaxWeight()),

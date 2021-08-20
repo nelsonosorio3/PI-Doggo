@@ -3,7 +3,7 @@ import rootReducer from "../reducer";
 import thunk from "redux-thunk";
 
 const delayedActionMiddleware = storeAPI => next => action => {
-  if (action.type ===  "FILTER_BY_TEMPERAMENT") {
+  if (action.type ===  "FILTER_BY_TEMPERAMENT" || action.type === "FILTER_BY_FROM_API" || action.type === "FILTER_BY_FROM_USER") {
     setTimeout(() => {
       next(action)
     }, 500)

@@ -42,12 +42,12 @@ function rootReducer (state = initialState, action) {
     case FILTER_BY_FROM_API:
       return{
         ...state,
-        filterResults: state.results.filter(result => !action.payload.id.includes(result.temperament))
+        results: state.results.filter(result => result.id>500)
       }
     case FILTER_BY_FROM_USER:
       return{
         ...state,
-        results: state.results.filter(result => action.payload.id.includes(result.temperament))
+        results: state.results.filter(result => result.id<600)
       }
     case ORDER_BY_ALPHA_ASC:
       return{

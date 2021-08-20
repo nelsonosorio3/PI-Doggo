@@ -48,11 +48,16 @@ export function filterTemperament(payload){
 };
 
 export function filterApi(payload){
-  return {type: FILTER_BY_FROM_API, payload};
+  return function(delayedActionMiddleware){
+    if(!payload.database) return delayedActionMiddleware({type: FILTER_BY_FROM_API, payload});
+  }
+  
 };
 
 export function filterUser(payload){
-  return {type: FILTER_BY_FROM_USER, payload};
+  return function(delayedActionMiddleware){
+    if(!payload.userAdded) return delayedActionMiddleware({type: FILTER_BY_FROM_USER, payload});
+  }
 };
 
 
