@@ -132,7 +132,7 @@ function mapDispatchToProps(dispatch){
     orderAlphaAsc: () => dispatch(orderAlphaAsc()),
     orderAlphaDesc: () => dispatch(orderAlphaDesc()),
     orderMinToMaxWeight: () => dispatch(orderMinToMaxWeight()),
-    orderMaxToMinWeight: () => dispatch(orderMinToMaxWeight()),
+    orderMaxToMinWeight: () => dispatch(orderMaxToMinWeight()),
 
   };
 };
