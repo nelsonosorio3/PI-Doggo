@@ -15,7 +15,7 @@ const {LOAD_RESULTS,
   GET_BREED_DETAILS,
   ADD_BREED_TO_DATABASE,} = require("../action-types");
 
-
+//fetch data from server
 export function loadResults(breed){
   return function(dispatch){
     if(breed.name){
@@ -39,7 +39,7 @@ export function loadCurrentPage(payload){
   return {type: LOAD_CURRENT_PAGE, payload};
 };
 
-
+//filter actions
 export function filterTemperament(payload){
   return function(delayedActionMiddleware){
     if(payload.temperament !== "") return delayedActionMiddleware({type: FILTER_BY_TEMPERAMENT, payload});
@@ -60,7 +60,7 @@ export function filterUser(payload){
   }
 };
 
-
+//Order actions
 export function orderAlphaAsc(){
   return {type: ORDER_BY_ALPHA_ASC};
 };
@@ -77,7 +77,7 @@ export function orderMaxToMinWeight(){
   return {type: ORDER_BY_MAX_TO_MIN_WEIGHT};
 };
 
-
+// Pagination
 export function goFirst(payload){
   return {type: GO_TO_FIRST_PAGE, payload};
 };
@@ -125,8 +125,6 @@ export function addBreed(data){
                             temperaments: data.temperaments.split(",")})
     })
     .then(response => response.json())
-    .then(json => {
-      dispatch({type: ADD_BREED_TO_DATABASE, payload: json});
-    })
+    
   }
 }

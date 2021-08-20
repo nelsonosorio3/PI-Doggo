@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-let id = 0;
+
 
 
 
