@@ -122,7 +122,7 @@ export function addBreed(data){
                             height: `${data.minHeight} - ${data.maxHeight}`,
                             weight: `${data.minWeight} - ${data.maxWeight}`,
                             life_span: `${data.minLife_span} - ${data.maxLife_span}`,
-                            temperaments: data.temperaments.split(",")})
+                            temperaments: data.temperament.split(",")})
     })
     .then(response => response.json())
     

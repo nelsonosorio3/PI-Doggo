@@ -25,8 +25,12 @@ router.get("/", async (req, res)=>{
           }
         });
     for await (let element of dbBreeds) {
+      let arrayTemperaments = [];
+      for await (let mood of element?.dataValues?.temperaments){
+        arrayTemperaments.push(mood.dataValues.name)
+      }
       apiBreeds.push({name: element.dataValues.name, 
-                      temperament: element?.dataValues?.temperament?.toLocaleLowerCase(), 
+                      temperaments: arrayTemperaments.join(", ").toLocaleLowerCase(), 
                       img: element.dataValues.img, 
                       id: element.dataValues.id,
                       weight: element.dataValues.weight})
@@ -52,7 +56,7 @@ router.get("/", async (req, res)=>{
       });
    
     const dbHasWord = await Breed.findAll(
-      {
+      {include: Temperament,
       where: {
         name: {
           [Op.substring]: name.toLocaleLowerCase()
@@ -61,8 +65,14 @@ router.get("/", async (req, res)=>{
     }
     );
     for await (let element of dbHasWord) {
+      let arrayTemperaments = [];
+      for await (let mood of element?.dataValues?.temperaments){
+        arrayTemperaments.push(mood.dataValues.name)
+      }
+      console.log(arrayTemperaments)
+
       arraySearch.push({name: element.dataValues.name, 
-                        temperament: element?.dataValues?.temperament?.toLocaleLowerCase(), 
+                        temperaments: arrayTemperaments.join(", ").toLocaleLowerCase(), 
                         img: element.dataValues.img, 
                         id: element.dataValues.id,
                         weight: element.dataValues.weight})
