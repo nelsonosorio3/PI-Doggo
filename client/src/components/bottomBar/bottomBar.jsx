@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import Pagination from "./pagination.jsx";
 import "./bottomBar.css"
 
@@ -8,19 +7,19 @@ export function BottomBar() {
 
     <div id="bottomBar">
       <div>
-        <button class="bottombuttons">First Page</button>
+        <button className="bottombuttons">First Page</button>
       </div>
       <div>
-      <button class="bottombuttons">Previous Page</button>
+      <button className="bottombuttons">Previous Page</button>
       </div>
       <div>
         <Pagination/>
       </div>
       <div>
-      <button class="bottombuttons">Next Page</button>
+      <button className="bottombuttons">Next Page</button>
       </div>
       <div>
-      <button class="bottombuttons">Last Page</button>
+      <button className="bottombuttons">Last Page</button>
       </div>
       
     </div>

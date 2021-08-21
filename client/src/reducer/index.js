@@ -17,7 +17,6 @@ const {LOAD_RESULTS,
 
 const initialState = {
   results: [],
-  filterResults: [],
   currentPageResults: [],
   breedDetails: {},
 }
@@ -32,7 +31,7 @@ function rootReducer (state = initialState, action) {
     case LOAD_CURRENT_PAGE:
       return{
         ...state,
-        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
+        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload-1) && index <8(action.payload))
       }
     case FILTER_BY_TEMPERAMENT:
       return{
@@ -92,7 +91,7 @@ function rootReducer (state = initialState, action) {
     case GO_TO_N_PAGE:
       return{
         ...state,
-        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
+        currentPageResults: state.results.filter((result, index) => index >= ((action.payload-1)*8) && index < ((action.payload)*8))
       }
     case ADD_BREED_TO_DATABASE:
       return{

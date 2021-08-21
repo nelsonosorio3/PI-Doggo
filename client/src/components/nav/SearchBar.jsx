@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
 import "./searchBar.css"
 import { loadResults, 
           filterTemperament,
@@ -94,11 +93,11 @@ export function SearchBar(breed) {
               <button type="submit" id="searchButton">🔎</button>
             {/* </Link> */}
             <div id="advanceBox" style={{ display: display.advance ? "flex" : "none" }}>
-              <label for="temperament">Temperament: </label>
+              <label htmlFor="temperament">Temperament: </label>
               <input type="text" name="temperament" placeholder="playful" onChange={handleInputChange}/><br/>
-              <label for="database">From database</label>
+              <label htmlFor="database">From database</label>
               <input type="checkbox" name="database" checked={input.database} onChange={handleCheckBoxChangeDataBase}/><br/>
-              <label for="userAdded">From user</label>
+              <label htmlFor="userAdded">From user</label>
               <input type="checkbox" name="userAdded" checked={input.userAdded} onChange={handleCheckBoxChangeUserAdded}/>
             </div>
           </form>
