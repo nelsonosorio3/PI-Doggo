@@ -5,7 +5,6 @@ import "./pagination.css";
 
 export function Pagination(breed) {
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(breed.breed.results.length);
 
   const amountPages = Math.ceil(breed.breed.results.length/8) || 1;
   const pageNumbers = [];
@@ -18,7 +17,15 @@ export function Pagination(breed) {
     setCurrentPage(number);
     breed.goN(number);
   };
-  console.log(pageNumbers)
+
+  
+  for (let i = 0; i < amountPages; i++) {
+    if(i+2< currentPage) pageNumbers.shift()
+    else if(i-2> currentPage ) pageNumbers.pop();
+  };
+
+  
+
   // const listPageNumber = pageNumbers.map(number => <li onClick={()=> setCurrentPage(number) }>{number}</li> )
   const listPageNumber = pageNumbers.map(number => <li onClick={() => handleClick(number)} key={number}>{number}</li> )
   useEffect(()=>{
