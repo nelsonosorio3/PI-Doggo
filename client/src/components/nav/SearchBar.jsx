@@ -58,17 +58,21 @@ export function SearchBar(breed) {
   }
 
   const handleOrderAlphaAsc = function(){
-    breed.orderAlphaAsc()
+    breed.orderAlphaAsc();
+    breed.goN(1);
   }
 
   const handleOrderAlphaDesc = function(){
-    breed.orderAlphaDesc()
+    breed.orderAlphaDesc();
+    breed.goN(1);
   }
   const handleOrderWeightAsc = function(){
-    breed.orderMinToMaxWeight()
+    breed.orderMinToMaxWeight();
+    breed.goN(1);
   }
   const handleOrderWeightDesc = function(){
-    breed.orderMaxToMinWeight()
+    breed.orderMaxToMinWeight();
+    breed.goN(1);
   }
 
   const handleSubmit =  event =>{
