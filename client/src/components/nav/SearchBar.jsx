@@ -7,7 +7,8 @@ import { loadResults,
           orderAlphaAsc, 
           orderAlphaDesc, 
           orderMinToMaxWeight,
-          orderMaxToMinWeight} from "../../actions";
+          orderMaxToMinWeight,
+          goN} from "../../actions";
 import { connect } from "react-redux";
 
 export function SearchBar(breed) {
@@ -76,7 +77,7 @@ export function SearchBar(breed) {
     breed.filterTemperament(input);
     breed.filterApi(input);
     breed.filterUser(input);
-    
+    breed.goN(1);
   };
 
   
@@ -138,6 +139,7 @@ function mapDispatchToProps(dispatch){
     orderAlphaDesc: () => dispatch(orderAlphaDesc()),
     orderMinToMaxWeight: () => dispatch(orderMinToMaxWeight()),
     orderMaxToMinWeight: () => dispatch(orderMaxToMinWeight()),
+    goN: breed => dispatch(goN(breed)),
 
   };
 };
