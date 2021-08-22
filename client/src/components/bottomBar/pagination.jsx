@@ -21,7 +21,7 @@ export function Pagination(breed) {
   
   for (let i = 0; i < amountPages; i++) {
     if(i+2< currentPage) pageNumbers.shift()
-    else if(i-2> currentPage ) pageNumbers.pop();
+    else if(i-3> currentPage ) pageNumbers.pop();
   };
 
   
@@ -34,7 +34,21 @@ export function Pagination(breed) {
   return(
 
     <div id="pagination">
+      <div>
+        <button className="bottombuttons" onClick={() => handleClick(1)}>First Page</button>
+      </div>
+      <div>
+      <button className="bottombuttons" onClick={() => handleClick(currentPage-1 > 1? currentPage-1 : 1)}>Previous Page</button>
+      </div>
+      <div>
       <ul>{listPageNumber}</ul>
+      </div>
+      <div>
+      <button className="bottombuttons"  onClick={() => handleClick(currentPage+1 <amountPages? currentPage+1 : amountPages)}>Next Page</button>
+      </div>
+      <div>
+      <button className="bottombuttons" onClick={() => handleClick(amountPages)}>Last Page </button>
+      </div>
     </div>
   )
 }

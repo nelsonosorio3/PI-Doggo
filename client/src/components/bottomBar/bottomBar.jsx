@@ -18,21 +18,21 @@ export function BottomBar(breed) {
   return(
 
     <div id="bottomBar">
-      <div>
+      {/* <div>
         <button className="bottombuttons" onClick={() => handleClick(1)}>First Page</button>
       </div>
       <div>
-      {/* <button className="bottombuttons" onClick={() => handleClick(currentPage-1)}>Previous Page</button> */}
-      </div>
-      <div>
+      <button className="bottombuttons" onClick={() => handleClick(currentPage-1)}>Previous Page</button>
+      </div> */}
+      
         <Pagination/>
-      </div>
-      <div>
-      {/* <button className="bottombuttons"  onClick={() => handleClick(currentPage+1)}>Next Page</button> */}
+    
+      {/* <div>
+      <button className="bottombuttons"  onClick={() => handleClick(currentPage+1)}>Next Page</button>
       </div>
       <div>
       <button className="bottombuttons" onClick={() => handleClick(amountPages)}>Last Page </button>
-      </div>
+      </div> */}
       
     </div>
   )
