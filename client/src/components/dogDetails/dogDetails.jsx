@@ -21,12 +21,14 @@ export function DogDetails(breed) {
       <div id="detailsContainer">
         <h2>{breed.breed.name}</h2>
         <div id="detailsBreed">
-          <img src={breed.breed.img} alt={`a ${breed.breed.name}`}/>
+          <div id="imgContainer">
+            <img src={breed.breed.img} alt={`a ${breed.breed.name}`}/>
+          </div>
           <div id="detailsNumbers">
-            <div>{breed.breed.height}</div>
-            <div>{breed.breed.weight}</div>
+            <div>{breed.breed.height} cm </div>
+            <div>{breed.breed.weight} kg</div>
             <div>{breed.breed.life_span}</div>
-            <div>{breed.breed.temperaments}</div>
+            <div>Temperaments: {breed.breed.temperaments}</div>
           </div>
         </div>
       </div>

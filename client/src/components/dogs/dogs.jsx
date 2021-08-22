@@ -1,18 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import Dog from "./dog";
+import "./dogs.css";
 
 export function Dogs(breed) {
  
   return (<div>
     
   
-    <div className="dogsBox">
+    <div id="dogsBox">
       {breed.breed.currentPageResults.map(dog =>(
         <Dog 
         name = {dog.name}
         img = {dog.img}
-        temperament = {dog.temperament}
+        temperaments = {dog.temperaments?.split(", ")}
         id = {dog.id}
         key = {dog.id}/>
       ))

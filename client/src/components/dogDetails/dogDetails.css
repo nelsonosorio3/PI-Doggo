@@ -6,11 +6,33 @@
   justify-content: center;
   flex-direction: column;
 }
+#detailsContainer h2{
+  text-align: center;
+}
 #detailsBreed{
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#imageContainer{
+  width: 5px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%
 }
 #detailsBreed img{
   border-radius: 50%;
   width: 50%;
-  height: 75%;
+  height: 50%;
+  padding-right: 30px;
+  transform: translateX(50%);
+}
+
+#detailsNumbers{
+  transform: translateX(-20%);
+  width: 50%;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: center;
 }
