@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
-export function Dog({name, img, temperaments}) {
+export function Dog({name, img, temperaments, id}) {
 
   return (<div>
     
-    <NavLink to={`/dog/${name}`} style={{textDecoration: 'none'}}>
+    <NavLink to={`/dog/${id}`} style={{textDecoration: 'none'}}>
     <div className="dogBox">
       <h1>{name}</h1>
       <img src={img} alt={`a ${name}`}/>

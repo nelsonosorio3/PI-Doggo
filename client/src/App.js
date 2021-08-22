@@ -23,7 +23,7 @@ export function App() {
             <Route path="/home">
               <Home/>
             </Route>
-            <Route path="/dog">
+            <Route path="/dog/:id">
               <DogDetails/>
             </Route>
             <Route path="/addDog">

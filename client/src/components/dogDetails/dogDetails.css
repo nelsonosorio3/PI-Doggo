@@ -1,0 +1,16 @@
+#detailsContainer{
+  background-color:rgb(194, 205, 233);
+  height: 75.9vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#detailsBreed{
+  display: flex;
+}
+#detailsBreed img{
+  border-radius: 50%;
+  width: 50%;
+  height: 75%;
+}

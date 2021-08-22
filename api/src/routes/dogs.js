@@ -126,9 +126,12 @@ router.get("/:id", async (req, res)=>{
   const {id} = req.params;
   const dbHasId = await Breed.findByPk(Number(id), {include: Temperament});
   let arrayTemperaments = [];
-  for await(let mood of dbHasId.temperaments){
-    arrayTemperaments.push(mood.name)
+  if(dbHasId){
+    for await(let mood of dbHasId.temperaments){
+      arrayTemperaments.push(mood.name)
+    }
   }
+  
   if (dbHasId) return res.json({id: dbHasId.id, 
                                 name: dbHasId.name, 
                                 height: dbHasId.height, 
@@ -152,7 +155,7 @@ router.get("/:id", async (req, res)=>{
                                 weight: apiHasId.weight.metric, 
                                 life_span: apiHasId.life_span, 
                                 img: apiHasId.image.url, 
-                                temperament: apiHasId.temperaments});
+                                temperaments: apiHasId.temperament});
 
   res.sendStatus(404);
 });

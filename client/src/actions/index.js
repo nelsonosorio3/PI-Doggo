@@ -78,7 +78,7 @@ export function goN(payload){
   return {type: GO_TO_N_PAGE, payload};
 };
 
-
+// detail of specific
 export function getDetails(id){
   return function(dispatch){
     return fetch(`http://localhost:3001/dogs/${id}`)
@@ -105,7 +105,7 @@ export function addBreed(data){
                             temperaments: data.temperament?.split(",")})
     })
     .then(response => response.json())
-    .then(json => {dispatch({type: ADD_BREED_TO_DATABASE, payload: json})})
+    
     
   }
 }

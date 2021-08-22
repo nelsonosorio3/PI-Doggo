@@ -13,6 +13,7 @@ export function Dogs(breed) {
         name = {dog.name}
         img = {dog.img}
         temperament = {dog.temperament}
+        id = {dog.id}
         key = {dog.id}/>
       ))
       }
