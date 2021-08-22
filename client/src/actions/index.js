@@ -7,10 +7,6 @@ const {LOAD_RESULTS,
   ORDER_BY_ALPHA_DESC,
   ORDER_BY_MIN_TO_MAX_WEIGHT,
   ORDER_BY_MAX_TO_MIN_WEIGHT,
-  GO_TO_FIRST_PAGE,
-  GO_TO_LAST_PAGE,
-  GO_TO_NEXT_PAGE,
-  GO_TO_PREVIOUS_PAGE,
   GO_TO_N_PAGE,
   GET_BREED_DETAILS,
   ADD_BREED_TO_DATABASE,} = require("../action-types");
@@ -78,22 +74,6 @@ export function orderMaxToMinWeight(){
 };
 
 // Pagination
-export function goFirst(payload){
-  return {type: GO_TO_FIRST_PAGE, payload};
-};
-
-export function goLast(payload){
-  return {type: GO_TO_LAST_PAGE, payload};
-};
-
-export function goNext(payload){
-  return {type: GO_TO_NEXT_PAGE, payload};
-};
-
-export function goPrevious(payload){
-  return {type: GO_TO_PREVIOUS_PAGE, payload};
-};
-
 export function goN(payload){
   return {type: GO_TO_N_PAGE, payload};
 };
@@ -125,6 +105,7 @@ export function addBreed(data){
                             temperaments: data.temperament?.split(",")})
     })
     .then(response => response.json())
+    .then(json => {dispatch({type: ADD_BREED_TO_DATABASE, payload: json})})
     
   }
 }

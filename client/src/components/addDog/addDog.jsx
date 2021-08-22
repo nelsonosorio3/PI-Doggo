@@ -55,7 +55,7 @@ export function AddDog(breed) {
         <input type="number" name="maxLife_span" placeholder="14" min="0" onChange={handleInputChange}/><br/>
 
         <label htmlFor="temperament">Temperaments list:</label>
-        <input type="text" name="temperament" placeholder="Athletic, Playful, Good-natured" onChange={handleInputChange}/><br></br>
+        <input type="text" name="temperament" placeholder="athletic, playful, loyal" onChange={handleInputChange}/><br/>
         <input type="submit" value="Submit"/>
       </form>
       </div>

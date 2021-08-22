@@ -1,18 +1,37 @@
-import React from 'react';
-import style from "./Card.module.css";
+import React from "react";
+import { connect } from "react-redux";
+import Dog from "./dog";
 
-export default function Dog({name, temperaments, img}) {
-  
+export function Dogs(breed) {
+ 
   return (<div>
     
   
     <div className="dogsBox">
-      <h1>{name}</h1>
-      <img src={img} alt={"dog breed image"}/>
-      <div><ul>{temperaments.map(temperament =>(
-        <li>{temperament}</li>
-      ))}</ul></div>
+      {breed.breed.currentPageResults.map(dog =>(
+        <Dog 
+        name = {dog.name}
+        img = {dog.img}
+        temperament = {dog.temperament}
+        key = {dog.id}/>
+      ))
+      }
+      
     </div>
     
   </div>)
 };
+
+function mapStateToprops(state){
+  return{
+    breed: state
+  };
+};
+
+function mapDispatchToProps(dispatch){
+  return{
+    
+  };
+};
+
+export default connect(mapStateToprops, mapDispatchToProps)(Dogs);

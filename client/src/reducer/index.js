@@ -7,10 +7,6 @@ const {LOAD_RESULTS,
   ORDER_BY_ALPHA_DESC,
   ORDER_BY_MIN_TO_MAX_WEIGHT,
   ORDER_BY_MAX_TO_MIN_WEIGHT,
-  GO_TO_FIRST_PAGE,
-  GO_TO_LAST_PAGE,
-  GO_TO_NEXT_PAGE,
-  GO_TO_PREVIOUS_PAGE,
   GO_TO_N_PAGE,
   GET_BREED_DETAILS,
   ADD_BREED_TO_DATABASE,} = require("../action-types");
@@ -67,26 +63,6 @@ function rootReducer (state = initialState, action) {
       return{
         ...state,
         results: state.results.sort((element1, element2) => (Number(element1.weight.split("-")[1]) > Number(element2.weight.split("-")[1])) ? -1 : 1)
-      }
-    case GO_TO_FIRST_PAGE:
-      return{
-        ...state,
-        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
-      }
-    case GO_TO_LAST_PAGE:
-      return{
-        ...state,
-        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
-      }
-    case GO_TO_NEXT_PAGE:
-      return{
-        ...state,
-        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
-      }
-    case GO_TO_PREVIOUS_PAGE:
-      return{
-        ...state,
-        currentPageResults: state.results.filter((result, index) => index >= 8*(action.payload.page-1) && index <8(action.payload.page))
       }
     case GO_TO_N_PAGE:
       return{
