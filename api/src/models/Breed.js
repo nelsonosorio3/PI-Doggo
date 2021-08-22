@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
     },
     weight: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     life_span: {
       type: DataTypes.STRING,

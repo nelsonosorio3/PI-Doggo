@@ -16,12 +16,15 @@ router.post("/", async (req, res)=>{
               life_span}
   });
 
-  for await (let temperament of temperaments) {
-    const [mood, isNew] = await Temperament.findOrCreate({
-      where: {name: temperament}
-    })
-    await breed.addTemperament(mood)
+  if(temperaments){
+    for await (let temperament of temperaments) {
+      const [mood, isNew] = await Temperament.findOrCreate({
+        where: {name: temperament}
+      })
+      await breed.addTemperament(mood)
+    }
   }
+  
   
   // await breed.addTemperaments(temperaments.join(""));
 
