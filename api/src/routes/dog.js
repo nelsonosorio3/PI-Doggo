@@ -7,7 +7,7 @@ const {Breed, Temperament} = require("../db");
 router.post("/", async (req, res)=>{
   //Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
   //Crea una raza de perro en la base de datos
-  const {name, minHeight, maxHeight, minWeight, maxWeight, minLife_span, maxLife_span, temperaments, height,weight,life_span} = req.body;
+  const {name, temperaments, height,weight,life_span} = req.body;
   
   const [breed, created] = await Breed.findOrCreate({
     where: {name: name},

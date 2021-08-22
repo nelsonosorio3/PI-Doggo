@@ -1,0 +1,10 @@
+#dogsBox{
+    background-color:rgb(194, 205, 233);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px;
+    
+}
