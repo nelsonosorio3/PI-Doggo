@@ -4,7 +4,16 @@
   display: flex;
   align-content: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+#detailsBox{
+  background-color: rgb(110, 98, 98);
+  border-radius: 50% 50% 20% 20%;
+  padding: 50px 0px 50px 0px;
+  width: 80%;
+  left: 100px;
+  color: aliceblue;
 }
 #detailsContainer h2{
   text-align: center;

@@ -17,8 +17,8 @@ export function DogDetails(breed) {
   },[id]);
   return(
 
-    <div>
-      <div id="detailsContainer">
+    <div id="detailsContainer">
+      <div id="detailsBox">
         <h2>{breed.breed.name}</h2>
         <div id="detailsBreed">
           <div id="imgContainer">
@@ -30,6 +30,7 @@ export function DogDetails(breed) {
             <div>{breed.breed.life_span}</div>
             <div>Temperaments: {breed.breed.temperaments}</div>
           </div>
+          
         </div>
       </div>
     </div>

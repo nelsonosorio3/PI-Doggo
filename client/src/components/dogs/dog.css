@@ -6,6 +6,7 @@
   justify-content: center;
   align-content: center;
   margin: 30px;
+  padding: 30px;
 }
 .dogTemperament{
   display: flex;
@@ -20,12 +21,9 @@
   padding: 0;
 }
 .dogCard{
-  padding-top: 0px;
-  padding-bottom: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin: 30px;
-  border-radius: 20%;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 50%;
   background-color: rgb(110, 98, 98)
 }
 /* .imgDogContainer{
@@ -39,9 +37,9 @@
 } */
 .imgDogContainer img{
   border-radius: 50px;
-  width: 100px;
+  width: 150px;
   height: 50%;
 }
-.dogInformation{
+/* .dogInformation{
   width: 200px;
-}
+} */
