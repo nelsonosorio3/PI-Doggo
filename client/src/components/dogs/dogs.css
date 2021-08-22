@@ -1,6 +1,7 @@
 #dogsBox{
     background-color:rgb(194, 205, 233);
     display: flex;
+    min-height: auto;
     align-content: center;
     justify-content: center;
     flex-direction: row;

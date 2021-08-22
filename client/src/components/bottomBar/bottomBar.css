@@ -1,9 +1,12 @@
 #bottomBar{
   background-color: rgb(8, 8, 37);
-  position:sticky;
+  position:fixed;
   display: flex;
+  left: 0;
+  bottom: 0%;
   margin-top: auto;
   height: 100px;
+  width: 100%;
   text-emphasis-color: none;
   display: flex;
   flex-direction: row;

@@ -10,7 +10,7 @@ export function Dog({name, img, temperaments, id}) {
     <NavLink to={`/dog/${id}`} style={{textDecoration: 'none'}}>
     <div className="dogsBox">
       <div className="titleImgBox">
-        <h2>{name}</h2>
+        <h3>{name}</h3>
    
       
       <div className="imgDogContainer">

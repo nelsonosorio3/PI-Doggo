@@ -1,6 +1,6 @@
 #formContainer{
   background-color:rgb(194, 205, 233);
-  height: 75.9vh;
+  height: 82vh;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -90,7 +90,7 @@ form label{
 
 @media only screen and (max-width: 540px) {
   #formContainer{
-    min-height: 64.94vh;
+    min-height: 74.94vh;
     max-height: 30vh;
   }
   #circle{
