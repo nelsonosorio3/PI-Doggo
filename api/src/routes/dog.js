@@ -28,9 +28,9 @@ router.post("/", async (req, res)=>{
   
   // await breed.addTemperaments(temperaments.join(""));
 
-  if(!created) return res.send("That breead already exists in the database");
+  if(!created) return res.json({new: false});
 
-  res.send("Breed successfully created!")
+  res.json({new: name.id})
 
 });
 
