@@ -11,14 +11,14 @@ export function Dog({name, img, temperaments, id}) {
       <div className="titleImgBox">
         <h3>{name}</h3>
    
-      
+        </div>
       <div className="imgDogContainer">
         <img src={img} alt={`a ${name}`}/>
       </div>
-      </div>
+      
     
       <div className="dogTemperament">
-        <div><ul><br/>{temperaments?.map(temperament =>(
+        <div><ul>{temperaments?.map(temperament =>(
           <li key={id}>{temperament}</li>
           ))}</ul>
         </div>
