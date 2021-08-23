@@ -5,6 +5,7 @@
 
 #navBar{
   background-color: rgb(8, 8, 37);
+  width: 100%;
   text-emphasis-color: none;
   display: flex;
   flex-direction: row;

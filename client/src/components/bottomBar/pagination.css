@@ -20,6 +20,9 @@
   padding-right: 10px;
   cursor: pointer;
 }
+#pagination ul li:hover{
+  transform: scale(1.1);
+}
 .bottombuttons{
   padding-left: 40px;
   padding-right: 40px;
@@ -28,6 +31,11 @@
   border: none;
   cursor: pointer;
   outline: inherit;
+}
+
+.bottombuttons:hover{
+  transform: scale(1.1);
+  z-index: 0;
 }
 
 @media only screen and (max-width: 730px) {

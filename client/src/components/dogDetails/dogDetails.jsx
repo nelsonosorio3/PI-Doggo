@@ -25,9 +25,12 @@ export function DogDetails(breed) {
             <img src={breed.breed.img} alt={`a ${breed.breed.name}`}/>
           </div>
           <div id="detailsNumbers">
-            <div>Height:<br/>  {breed.breed.height} cm </div><br/>
-            <div>Weight:<br/>  {breed.breed.weight} kg</div><br/>
-            <div>Lifespan:<br/>  {breed.breed.life_span}</div><br/>
+            <div id="numbers">
+              <div>Height:<br/>  {breed.breed.height} cm </div><br/>
+              <div>Weight:<br/>  {breed.breed.weight} kg</div><br/>
+              <div>Lifespan:<br/>  {breed.breed.life_span}</div><br/>
+            </div><br/>
+            
             <div>Temperaments:<ul>{breed.breed.temperaments?.split(",").map(temperament =>(
           <li key={breed.breed.id}>{temperament}</li>
           ))}</ul></div>

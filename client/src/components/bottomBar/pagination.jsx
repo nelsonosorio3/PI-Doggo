@@ -20,14 +20,14 @@ export function Pagination(breed) {
 
   
   for (let i = 0; i < amountPages; i++) {
-    if(i+2< currentPage) pageNumbers.shift()
-    else if(i-3> currentPage ) pageNumbers.pop();
+    if(i+3< currentPage) pageNumbers.shift()
+    else if(i-2> currentPage ) pageNumbers.pop();
   };
 
   
 
   // const listPageNumber = pageNumbers.map(number => <li onClick={()=> setCurrentPage(number) }>{number}</li> )
-  const listPageNumber = pageNumbers.map(number => <li onClick={() => handleClick(number)} key={number}>{number}</li> )
+  const listPageNumber = pageNumbers.map(number => <li onClick={() => handleClick(number)} key={number}>{number === currentPage? <strong>{number}</strong>:number}</li> )
   useEffect(()=>{
   
   });

@@ -29,15 +29,10 @@
   border-radius: 50%;
   background-color: rgb(110, 98, 98)
 }
-/* .imgDogContainer{
-  width: 30%;
-  height: 25%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  align-content: center;
-  justify-content: center;
-} */
+.dogCard:hover{
+  /* transform: scale(1.1); */
+  background-color: rgb(110, 80,80);
+}
 .imgDogContainer img{
   border-radius: 50px;
   width: 150px;
