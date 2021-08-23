@@ -10,9 +10,9 @@
   position: sticky;
   z-index: 5;
   background-color: rgb(253, 238, 24);
-  left: 42%;
+  left: 45%;
   right: 55%;
-  transform: translateY(510px);
+  transform: translateY(550px);
   width: 300px;
   height: 100px;
   border-radius: 20%;
