@@ -13,6 +13,7 @@
   align-items: center;
   flex-wrap: wrap;
   position: sticky;
+  padding: 10px 0px 10px 0px;
 }
 A{
   color: aliceblue;
