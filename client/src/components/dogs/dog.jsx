@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import "./dog.css"
 
@@ -20,7 +19,7 @@ export function Dog({name, img, temperaments, id}) {
     
       <div className="dogTemperament">
         <div><ul><br/>{temperaments?.map(temperament =>(
-          <li key={temperament}>{temperament}</li>
+          <li key={id}>{temperament}</li>
           ))}</ul>
         </div>
       </div>
@@ -32,16 +31,4 @@ export function Dog({name, img, temperaments, id}) {
   </div>)
 };
 
-function mapStateToprops(state){
-  return{
-    breed: state
-  };
-};
-
-function mapDispatchToProps(dispatch){
-  return{
-    
-  };
-};
-
-export default connect(mapStateToprops, mapDispatchToProps)(Dog);
+export default Dog;

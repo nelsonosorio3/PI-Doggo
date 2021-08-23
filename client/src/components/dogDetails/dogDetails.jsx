@@ -31,9 +31,7 @@ export function DogDetails(breed) {
               <div>Lifespan:<br/>  {breed.breed.life_span}</div><br/>
             </div><br/>
             
-            <div>Temperaments:<ul>{breed.breed.temperaments?.split(",").map(temperament =>(
-          <li key={breed.breed.id}>{temperament}</li>
-          ))}</ul></div>
+            <div>Temperaments:</div><br/><div>{breed.breed.temperaments}</div>
           </div>
           
         </div>
