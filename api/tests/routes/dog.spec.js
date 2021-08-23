@@ -34,7 +34,8 @@ describe('Breed routes', () => {
   });
   describe("Get /dogs?name=Pug", () => {
     it("should get 200", () =>
-    agent.get("/dogs?name=Pug").expect(200))
+    agent.get("/dogs?name=Pug").expect(200)
+    )
   })
   describe("Post /dog", ()=> {
     it("should add dog", ()=>{

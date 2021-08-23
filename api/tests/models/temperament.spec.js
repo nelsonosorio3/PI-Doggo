@@ -1,7 +1,7 @@
 const { Temperament, conn } = require('../../src/db.js');
 const { expect } = require('chai');
 
-describe('Breed model', () => {
+describe('Temperament model', () => {
   before(() => conn.authenticate()
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
@@ -15,8 +15,12 @@ describe('Breed model', () => {
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
-        Temperament.create({ name: 'Overly Active' });
+        Temperament.create({ name: 'Hyper-active' });
       });
+      it("should not duplicate already existing name", ()=> {
+        Temperament.create({name: "Hyper-active"});
+        Temperament.create({name: "Hyper-active"});
+      })
     });
   });
 });
