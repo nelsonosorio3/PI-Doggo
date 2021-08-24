@@ -19,7 +19,7 @@ export function Dog({name, img, temperaments, id}) {
     
       <div className="dogTemperament">
         <div><ul>{temperaments?.map(temperament =>(
-          <li key={id}>{temperament}</li>
+          <li key={id++}>{temperament}</li>
           ))}</ul>
         </div>
       </div>
