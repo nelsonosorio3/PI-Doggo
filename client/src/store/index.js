@@ -15,8 +15,9 @@ const delayedActionMiddleware = storeAPI => next => action => {
 
   return next(action)
 }
+//, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const composedEnhancer = compose(applyMiddleware(thunk, delayedActionMiddleware)/*, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/)
 
-const composedEnhancer = compose(applyMiddleware(thunk, delayedActionMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 export const store = createStore(
   rootReducer,
   composedEnhancer
