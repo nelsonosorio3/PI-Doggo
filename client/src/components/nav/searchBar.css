@@ -72,7 +72,7 @@
 }
 #orderBox{
   background-color:rgb(8, 8, 37);
-  z-index: 3;
+  /* z-index: 3; */
   position: absolute;
   width: 250px;
   height: 200px;

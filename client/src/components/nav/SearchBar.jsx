@@ -10,6 +10,7 @@ import { loadResults,
           orderMaxToMinWeight,
           goN} from "../../actions";
 import { connect } from "react-redux";
+import {useHistory} from "react-router-dom";
 
 export function SearchBar(breed) {
 
@@ -28,6 +29,8 @@ export function SearchBar(breed) {
 
   const [display, setDisplay] = useState({advance: false, order:false});
 
+  let history = useHistory();
+
   const showAdvance = function(){
     setDisplay({advance: display.advance ? false : true, order: false});
   };
@@ -37,6 +40,7 @@ export function SearchBar(breed) {
   }
   
   const handleInputChange = function(event){
+    console.log(history)
     setInput({
       ...input,
       [event.target.name]: event.target.value,
@@ -82,12 +86,13 @@ export function SearchBar(breed) {
     breed.filterApi(input);
     breed.filterUser(input);
     breed.goN(1);
+    history.push("/home")
   };
 
   
     
   useEffect(()=>{
-
+    
   });
   return(
     <div>
@@ -97,7 +102,7 @@ export function SearchBar(breed) {
             {/* <Link to ="/home"> */}
               <button type="submit" id="searchButton">🔎</button>
             {/* </Link> */}
-            <div id="advanceBox" style={{ display: display.advance ? "flex" : "none" }}>
+            <div id="advanceBox" style={{ display: display.advance && history.location.pathname === "/home" ? "flex" : "none"}}>
               <label htmlFor="temperament">Temperament: </label>
               <input type="text" name="temperament" placeholder="playful" onChange={handleInputChange}/><br/>
               <label htmlFor="database">From database</label>
@@ -106,7 +111,7 @@ export function SearchBar(breed) {
               <input type="checkbox" name="userAdded" checked={input.userAdded} onChange={handleCheckBoxChangeUserAdded}/>
             </div>
           </form>
-          <div id="orderBox" style={{display: display.order ? "flex": "none"}}>
+          <div id="orderBox" style={{display: display.order && history.location.pathname === "/home"? "flex": "none"}}>
             <button className="oderButtons" onClick={handleOrderAlphaAsc}>Alphabetically [A-Z]</button>
             <button className="oderButtons" onClick={handleOrderAlphaDesc}>Alphabetically [Z-A]</button>
             <button className="oderButtons" onClick={handleOrderWeightAsc}>Weigth ascending</button>

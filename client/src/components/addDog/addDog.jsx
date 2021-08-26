@@ -3,7 +3,7 @@ import { useState } from "react";
 import {connect} from "react-redux";
 import {addBreed, breedNotAdded} from "../../actions"
 import "./addDog.css";
-
+import { useHistory } from "react-router";
 
 export function AddDog(breed) {
   const [input, setInput] = useState({
@@ -17,6 +17,8 @@ export function AddDog(breed) {
     temperaments: "",
   });
 
+  let history = useHistory();
+  
   const handleInputChange = function(event){
     setInput({
       ...input,
@@ -43,7 +45,8 @@ export function AddDog(breed) {
       breed.breedNotAdded();
     }
     else if(typeof breed.breed.dogAdded === "number"){
-      window.open(`/dog/${breed.breed.dogAdded}`)
+      // window.open(`/dog/${breed.breed.dogAdded}`)
+      history.push(`/dog/${breed.breed.dogAdded}`)
       breed.breedNotAdded();
     }
   }, [breed]);

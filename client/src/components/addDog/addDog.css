@@ -49,6 +49,7 @@ form label{
   display: flex;
   justify-content: center;
   align-content: center;
+  z-index: 1;
   /* border-style: solid;
   border-color: aliceblue; */
 }
