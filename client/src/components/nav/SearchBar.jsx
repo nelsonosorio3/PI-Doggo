@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import "./searchBar.css"
 import { loadResults, 
           filterTemperament,
@@ -13,6 +13,8 @@ import { connect } from "react-redux";
 import {useHistory} from "react-router-dom";
 
 export function SearchBar(breed) {
+  const advanceRef = useRef();
+  const orderRef = useRef();
 
   const [input, setInput] = useState({
     name: "",
@@ -40,7 +42,6 @@ export function SearchBar(breed) {
   }
   
   const handleInputChange = function(event){
-    console.log(history)
     setInput({
       ...input,
       [event.target.name]: event.target.value,
@@ -89,8 +90,23 @@ export function SearchBar(breed) {
     history.push("/home")
   };
 
-  
+  useEffect(()=>{
     
+      let handler = (event) =>{
+        if(!advanceRef.current.contains(event.target) && display.advance === true){
+          setDisplay({advance: false, order:false})
+        }
+        else if(!orderRef.current.contains(event.target) && display.order === true){
+          setDisplay({advance: false, order:false})
+        }
+      }
+      document.addEventListener("mousedown", handler)
+
+    return () => {
+      document.removeEventListener("mousedown", handler)
+    }
+  })
+ 
   useEffect(()=>{
  
   });
@@ -98,6 +114,7 @@ export function SearchBar(breed) {
     breed.loadResults(input);
     breed.goN(1);
   },[])
+ 
   return(
     <div>
       <div id="searchBarContainer">
@@ -106,7 +123,7 @@ export function SearchBar(breed) {
             {/* <Link to ="/home"> */}
               <button type="submit" id="searchButton">🔎</button>
             {/* </Link> */}
-            <div id="advanceBox" style={{ display: display.advance && history.location.pathname === "/home" ? "flex" : "none"}}>
+            <div id="advanceBox" ref={advanceRef} style={{ display: display.advance && history.location.pathname === "/home" ? "flex" : "none"}}>
               <label htmlFor="temperament">Temperament: </label>
               <input type="text" name="temperament" placeholder="playful" onChange={handleInputChange}/><br/>
               <label htmlFor="database">From database</label>
@@ -115,7 +132,7 @@ export function SearchBar(breed) {
               <input type="checkbox" name="userAdded" checked={input.userAdded} onChange={handleCheckBoxChangeUserAdded}/>
             </div>
           </form>
-          <div id="orderBox" style={{display: display.order && history.location.pathname === "/home"? "flex": "none"}}>
+          <div id="orderBox"  ref={orderRef} style={{display: display.order && history.location.pathname === "/home"? "flex": "none"}}>
             <button className="oderButtons" onClick={handleOrderAlphaAsc}>Alphabetically [A-Z]</button>
             <button className="oderButtons" onClick={handleOrderAlphaDesc}>Alphabetically [Z-A]</button>
             <button className="oderButtons" onClick={handleOrderWeightAsc}>Weigth ascending</button>
