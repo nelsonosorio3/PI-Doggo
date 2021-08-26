@@ -9,12 +9,14 @@ const {LOAD_RESULTS,
   ORDER_BY_MAX_TO_MIN_WEIGHT,
   GO_TO_N_PAGE,
   GET_BREED_DETAILS,
-  ADD_BREED_TO_DATABASE,} = require("../action-types");
+  ADD_BREED_TO_DATABASE,
+  BREED_NOT_ADDED_TO_DATABASE} = require("../action-types");
 
 const initialState = {
   results: [],
   currentPageResults: [],
   breedDetails: {},
+  dogAdded: "standBy",
 }
 
 function rootReducer (state = initialState, action) {
@@ -72,12 +74,17 @@ function rootReducer (state = initialState, action) {
     case ADD_BREED_TO_DATABASE:
       return{
         ...state,
-        breedDetails: action.payload
+        dogAdded: action.payload,
       }
     case GET_BREED_DETAILS:
       return{
         ...state,
         breedDetails: action.payload
+      }
+    case BREED_NOT_ADDED_TO_DATABASE:
+      return{
+        ...state,
+        dogAdded: "standBy"
       }
     default:
       return state;

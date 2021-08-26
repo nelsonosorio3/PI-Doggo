@@ -16,7 +16,7 @@ router.post("/", async (req, res)=>{
               life_span}
   });
 
-  if(temperaments){
+  if(temperaments && created){
     for await (let temperament of temperaments) {
       const [mood, isNew] = await Temperament.findOrCreate({
         where: {name: temperament}
@@ -28,9 +28,9 @@ router.post("/", async (req, res)=>{
   
   // await breed.addTemperaments(temperaments.join(""));
 
-  if(!created) return res.json({new: false});
+  if(!created) return res.json("noCreated");
 
-  res.json({new: name.id})
+  return res.json(breed.id)
 
 });
 

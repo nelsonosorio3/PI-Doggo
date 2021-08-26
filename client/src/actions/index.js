@@ -9,7 +9,8 @@ const {LOAD_RESULTS,
   ORDER_BY_MAX_TO_MIN_WEIGHT,
   GO_TO_N_PAGE,
   GET_BREED_DETAILS,
-  ADD_BREED_TO_DATABASE,} = require("../action-types");
+  ADD_BREED_TO_DATABASE,
+  BREED_NOT_ADDED_TO_DATABASE} = require("../action-types");
 
 //fetch data from server
 export function loadResults(breed){
@@ -92,20 +93,32 @@ export function getDetails(id){
 
 export function addBreed(data){
   return function (dispatch){
-    return fetch("http://localhost:3001/dog",{
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({name: data.name,
-                            height: `${data.minHeight} - ${data.maxHeight}`,
-                            weight: `${data.minWeight} - ${data.maxWeight}`,
-                            life_span: `${data.minLife_span} - ${data.maxLife_span}`,
-                            temperaments: data.temperament?.split(",")})
-    })
-    .then(response => response.json())
+    if(data.name){
+      return fetch("http://localhost:3001/dog",{
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name: data.name,
+                              height: `${data.minHeight} - ${data.maxHeight}`,
+                              weight: `${data.minWeight} - ${data.maxWeight}`,
+                              life_span: `${data.minLife_span} - ${data.maxLife_span}`,
+                              temperaments: data.temperament?.split(",")})
+      })
+      .then(response => response.json())
+      .then(json => {
+        dispatch({type: ADD_BREED_TO_DATABASE, payload: json})
+      })
+    }
+    else{
+      dispatch({type: ADD_BREED_TO_DATABASE, payload: "noCreatedName"})
+    }
+    
     
     
   }
+}
+export function breedNotAdded(){
+  return {type: BREED_NOT_ADDED_TO_DATABASE}
 }

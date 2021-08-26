@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import {connect} from "react-redux";
-import {addBreed} from "../../actions"
+import {addBreed, breedNotAdded} from "../../actions"
 import "./addDog.css";
+
 
 export function AddDog(breed) {
   const [input, setInput] = useState({
@@ -23,14 +24,30 @@ export function AddDog(breed) {
     });
   };
 
+
   const handleSubmit = event =>{
     event.preventDefault();
     breed.addBreed(input);
+    
   };
 
+
+
   useEffect(()=>{
-  
+    if(breed.breed.dogAdded === "noCreated"){
+      alert("Breed not added, the breed was already in the database");
+      breed.breedNotAdded();
+    } 
+    else if(breed.breed.dogAdded === "noCreatedName"){
+      alert("Breed not added, you can't add a breed with an empty name!")
+      breed.breedNotAdded();
+    }
+    else if(typeof breed.breed.dogAdded === "number"){
+      window.open(`/dog/${breed.breed.dogAdded}`)
+      breed.breedNotAdded();
+    }
   }, [breed]);
+  
   return(
 
     <div id="formContainer">
@@ -56,12 +73,12 @@ export function AddDog(breed) {
 
         <label htmlFor="temperament">Temperaments list:</label>
         <input type="text" name="temperament" placeholder="athletic, playful, loyal" onChange={handleInputChange}/><br/>
+        
         <input type="submit" value="Submit"/>
       </form>
       </div>
       <div id="nostrilL"></div>
-      <div id="nostrilR"></div>
-      
+      <div id="nostrilR"></div> 
     </div>
   )
 }
@@ -74,7 +91,8 @@ function mapStateToprops(state){
 
 function mapDispatchToProps(dispatch){
   return{
-    addBreed: breed => dispatch(addBreed(breed))
+    addBreed: breed => dispatch(addBreed(breed)),
+    breedNotAdded: () => dispatch(breedNotAdded())
   };
 };
 

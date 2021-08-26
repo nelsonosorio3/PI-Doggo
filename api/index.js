@@ -78,21 +78,21 @@ conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
     // Preload
-    // fetch(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`) 
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     for (let i = 0; i < data.length; i++) {
-    //       let temp = data[i].temperament?.split(",");
-    //       for (let j = 0; j < temp?.length; j++) {
-    //         moods.add(temp[j].trim())
-    //       } 
-    //     }
-    //     moods.forEach((mood)=>{
-    //       Temperament.create({
-    //         name: mood
-    //       })
-    //     })
-    //   });
+    fetch(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`) 
+      .then(response => response.json())
+      .then(data => {
+        for (let i = 0; i < data.length; i++) {
+          let temp = data[i].temperament?.split(",");
+          for (let j = 0; j < temp?.length; j++) {
+            moods.add(temp[j].trim())
+          } 
+        }
+        moods.forEach((mood)=>{
+          Temperament.create({
+            name: mood
+          })
+        })
+      });
     Breed.create({
       name: "test",
       height: "12 - 18",

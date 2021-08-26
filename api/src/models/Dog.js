@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isAlphanumeric: true,
+        notEmpty: true
+      }
     },
   });
 };

@@ -92,7 +92,7 @@ form label{
 
 @media only screen and (max-width: 540px) {
   #formContainer{
-    min-height: 74.94vh;
+    min-height: 80.94vh;
     max-height: 30vh;
   }
   #circle{
