@@ -92,8 +92,12 @@ export function SearchBar(breed) {
   
     
   useEffect(()=>{
-    
+ 
   });
+  useEffect(()=>{
+    breed.loadResults(input);
+    breed.goN(1);
+  },[])
   return(
     <div>
       <div id="searchBarContainer">
