@@ -2,10 +2,12 @@ import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
 import { goN } from "../../actions";
 import "./pagination.css";
+import { useHistory } from "react-router";
 
 export function Pagination(breed) {
   const [currentPage, setCurrentPage] = useState(1);
-
+  let history = useHistory();
+  console.log(breed)
   const amountPages = Math.ceil(breed.breed.results.length/8) || 1;
   const pageNumbers = [];
 
@@ -16,6 +18,7 @@ export function Pagination(breed) {
   const handleClick = function(number){
     setCurrentPage(number);
     breed.goN(number);
+    history.push("/home")
   };
 
   
@@ -24,10 +27,10 @@ export function Pagination(breed) {
     else if(i-2> currentPage ) pageNumbers.pop();
   };
 
-  
+
 
   // const listPageNumber = pageNumbers.map(number => <li onClick={()=> setCurrentPage(number) }>{number}</li> )
-  const listPageNumber = pageNumbers.map(number => <li onClick={() => handleClick(number)} key={number}>{number === currentPage? <strong>{number}</strong>:number}</li> )
+  const listPageNumber = pageNumbers.map(number => <li onClick={() => handleClick(number)} key={number}>{number === currentPage? <u><strong>{number}</strong></u>:number}</li> )
   useEffect(()=>{
   
   });
