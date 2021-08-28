@@ -8,12 +8,11 @@ export function DogDetails(breed) {
   const {id} = useParams();
   // console.log(id);
   // breed.getDetails(id);
-  console.log(breed.breed.name)
-  const test = () =>{
+  const details = () =>{
     breed.getDetails(id);}
 
   useEffect(() => {
-    test()
+    details()
   },[id]);
   return(
 

@@ -7,7 +7,6 @@ import { useHistory } from "react-router";
 export function Pagination(breed) {
   const [currentPage, setCurrentPage] = useState(1);
   let history = useHistory();
-  console.log(breed)
   const amountPages = Math.ceil(breed.breed.results.length/8) || 1;
   const pageNumbers = [];
 
@@ -44,7 +43,7 @@ export function Pagination(breed) {
       <button className="bottombuttons" onClick={() => handleClick(currentPage-1 > 1? currentPage-1 : 1)}>Previous Page</button>
       </div>
       <div>
-      <ul>{listPageNumber.concat(currentPage +3 < amountPages? <li>...</li> : <li></li>)}</ul>
+      <ul>{listPageNumber.concat(currentPage +3 < amountPages && <li>...</li>) }</ul>
       </div>
       <div>
       <button className="bottombuttons"  onClick={() => handleClick(currentPage+1 <amountPages? currentPage+1 : amountPages)}>Next Page</button>
