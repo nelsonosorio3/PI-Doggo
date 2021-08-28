@@ -107,9 +107,9 @@ export function SearchBar(breed) {
     }
   })
  
-  useEffect(()=>{
+  // useEffect(()=>{
  
-  });
+  // });
   useEffect(()=>{
     breed.loadResults(input);
     breed.goN(1);

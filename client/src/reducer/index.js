@@ -49,22 +49,22 @@ function rootReducer (state = initialState, action) {
     case ORDER_BY_ALPHA_ASC:
       return{
         ...state,
-        results: state.results.sort((element1, element2) => (element1.name.toLowerCase() > element2.name.toLowerCase()) ? 1 : -1)
+        results: [...state.results].sort((element1, element2) => (element1.name.toLowerCase() > element2.name.toLowerCase()) ? 1 : -1)
       }
     case ORDER_BY_ALPHA_DESC:
       return{
         ...state,
-        results: state.results.sort((element1, element2) => (element1.name.toLowerCase() > element2.name.toLowerCase()) ? -1 : 1)
+        results: [...state.results].sort((element1, element2) => (element1.name.toLowerCase() > element2.name.toLowerCase()) ? -1 : 1)
       }
     case ORDER_BY_MIN_TO_MAX_WEIGHT:
       return{
         ...state,
-        results: state.results.sort((element1, element2) => (Number(element1.weight.split("-")[0]) > Number(element2.weight.split("-")[0])) ? 1 : -1)
+        results: [...state.results].sort((element1, element2) => (Number(element1.weight.split("-")[0]) > Number(element2.weight.split("-")[0])) ? 1 : -1)
       }
     case ORDER_BY_MAX_TO_MIN_WEIGHT:
       return{
         ...state,
-        results: state.results.sort((element1, element2) => (Number(element1.weight.split("-")[0]) < Number(element2.weight.split("-")[0])) ? 1 : -1)
+        results: [...state.results].sort((element1, element2) => (Number(element1.weight.split("-")[0]) < Number(element2.weight.split("-")[0])) ? 1 : -1)
       }
     case GO_TO_N_PAGE:
       return{

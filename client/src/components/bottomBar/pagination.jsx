@@ -32,8 +32,8 @@ export function Pagination(breed) {
   // const listPageNumber = pageNumbers.map(number => <li onClick={()=> setCurrentPage(number) }>{number}</li> )
   const listPageNumber = pageNumbers.map(number => <li onClick={() => handleClick(number)} key={number}>{number === currentPage? <u><strong>{number}</strong></u>:number}</li> )
   useEffect(()=>{
-  
-  });
+    setCurrentPage(1);
+  },[breed.breed.results]);
   return(
 
     <div id="pagination">
