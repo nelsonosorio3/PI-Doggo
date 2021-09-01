@@ -59,12 +59,12 @@ function rootReducer (state = initialState, action) {
     case ORDER_BY_MIN_TO_MAX_WEIGHT:
       return{
         ...state,
-        results: [...state.results].sort((element1, element2) => (Number(element1.weight.split("-")[0]) > Number(element2.weight.split("-")[0])) ? 1 : -1)
+        results: [...state.results].sort((element1, element2) => (Number(element1.weight.split("-")[0]) - Number(element2.weight.split("-")[0])) )
       }
     case ORDER_BY_MAX_TO_MIN_WEIGHT:
       return{
         ...state,
-        results: [...state.results].sort((element1, element2) => (Number(element1.weight.split("-")[0]) < Number(element2.weight.split("-")[0])) ? 1 : -1)
+        results: [...state.results].sort((element1, element2) => (Number(element2.weight.split("-")[0]) - Number(element1.weight.split("-")[0])))
       }
     case GO_TO_N_PAGE:
       return{

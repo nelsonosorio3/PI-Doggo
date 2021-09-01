@@ -21,7 +21,8 @@ router.get("/", async (req, res)=>{
                             temperaments: element?.temperament?.toLocaleLowerCase(), 
                             img: element.image.url, 
                             id: element.id,
-                            weight: element.weight.metric})
+                            weight: element.weight.metric,
+                            origin: element.origin})
           }
         });
     for await (let element of dbBreeds) {
@@ -149,13 +150,14 @@ router.get("/:id", async (req, res)=>{
         }
       }
     });
-  if (apiHasId) return res.json({id: apiHasId.id, 
+  if (apiHasId !== undefined) return res.json({id: apiHasId.id, 
                                 name: apiHasId.name, 
                                 height: apiHasId.height.metric, 
                                 weight: apiHasId.weight.metric, 
                                 life_span: apiHasId.life_span, 
                                 img: apiHasId.image.url, 
-                                temperaments: apiHasId.temperament});
+                                temperaments: apiHasId.temperament,
+                                origin: apiHasId.origin})
 
   res.sendStatus(404);
 });

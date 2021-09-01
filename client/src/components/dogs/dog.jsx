@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 import "./dog.css"
 
-export function Dog({name, img, temperaments, id}) {
+export function Dog({name, img, temperaments, id, origin}) {
 
   return (<div className="dogCard">
     
@@ -16,7 +16,7 @@ export function Dog({name, img, temperaments, id}) {
         <img src={img} alt={`a ${name}`}/>
       </div>
       
-    
+      <h3>{origin}</h3>
       <div className="dogTemperament">
         <div><ul>{temperaments?.map(temperament =>(
           <li key={id++}>{temperament}</li>

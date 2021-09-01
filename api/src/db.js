@@ -38,6 +38,10 @@ Breed.addHook("beforeCreate", (breed, options) =>{
   idBreed++
 });
 
+// Temperament.addHook("beforeCreate", (temperament, options) =>{
+//   temperament.name = temperament.name.toLocaleLowerCase()
+// });
+
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 Breed.belongsToMany(Temperament, {through: "breed_temperament"});

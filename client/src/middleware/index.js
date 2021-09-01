@@ -11,7 +11,7 @@ export const delayedActionMiddleware = storeAPI => next => action => {
      action.type === GO_TO_N_PAGE) {
     setTimeout(() => {
       next(action)
-    }, 500)
+    }, 1000)
     return
   }
 

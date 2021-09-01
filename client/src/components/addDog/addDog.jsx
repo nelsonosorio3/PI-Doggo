@@ -41,7 +41,7 @@ export function AddDog(breed) {
       breed.breedNotAdded();
     } 
     else if(breed.breed.dogAdded === "noCreatedName"){
-      alert("Breed not added, you can't add a breed with an empty name!")
+      alert("Breed not added, you can't add a breed with an empty field!")
       breed.breedNotAdded();
     }
     else if(typeof breed.breed.dogAdded === "number"){
@@ -49,7 +49,7 @@ export function AddDog(breed) {
       history.push(`/dog/${breed.breed.dogAdded}`)
       breed.breedNotAdded();
     }
-  }, [breed]);
+  }, [breed, history]);
   
   return(
 

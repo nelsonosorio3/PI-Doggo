@@ -7,11 +7,6 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
 
   sequelize.define('breed', {
-    // id:{
-    //   type: DataTypes.INTEGER,
-    //   primaryKey: true,
-    //   defaultValue: ++id,
-    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -93,7 +93,7 @@ export function getDetails(id){
 
 export function addBreed(data){
   return function (dispatch){
-    if(data.name){
+    if(data.name && data.minHeight && data.maxHeight && data.minWeight && data.maxWeight && data.minLife_span && data.maxLife_span){
       return fetch("http://localhost:3001/dog",{
         method: 'POST',
         headers: {

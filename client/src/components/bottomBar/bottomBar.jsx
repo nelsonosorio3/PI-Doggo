@@ -8,7 +8,7 @@ export function BottomBar(breed) {
 
     <div id="bottomBar">
       {
-        breed.breed.results.length? <Pagination/>: <div></div>
+        breed.breed.results.length? <Pagination/>: <div id="nothingFound">NOTHING FOUND</div>
       }
       {/* <Pagination/> */}
     

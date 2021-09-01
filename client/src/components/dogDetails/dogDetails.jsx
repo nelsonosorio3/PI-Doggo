@@ -28,6 +28,7 @@ export function DogDetails(breed) {
               <div>Height:<br/>  {breed.breed.height} cm </div><br/>
               <div>Weight:<br/>  {breed.breed.weight} kg</div><br/>
               <div>Lifespan:<br/>  {breed.breed.life_span}</div><br/>
+              <div>Origin: {breed.breed.origin}</div>
             </div><br/>
             
             <div>Temperaments:</div><br/><div>{breed.breed.temperaments}</div>

@@ -43,7 +43,7 @@ export function Pagination(breed) {
       <button className="bottombuttons" onClick={() => handleClick(currentPage-1 > 1? currentPage-1 : 1)}>Previous Page</button>
       </div>
       <div>
-      <ul>{listPageNumber.concat(currentPage +3 < amountPages && <li>...</li>) }</ul>
+      <ul>{listPageNumber.concat(currentPage +3 < amountPages && <div key={999}>...</div>) }</ul>
       </div>
       <div>
       <button className="bottombuttons"  onClick={() => handleClick(currentPage+1 <amountPages? currentPage+1 : amountPages)}>Next Page</button>
