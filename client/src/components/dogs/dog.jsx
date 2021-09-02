@@ -16,7 +16,7 @@ export function Dog({name, img, temperaments, id, origin}) {
         <img src={img} alt={`a ${name}`}/>
       </div>
       
-      <h3>{origin}</h3>
+      {/* <h3>{origin}</h3> */}
       <div className="dogTemperament">
         <div><ul>{temperaments?.map(temperament =>(
           <li key={id++}>{temperament}</li>

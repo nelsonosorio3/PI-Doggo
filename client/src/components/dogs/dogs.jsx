@@ -16,7 +16,8 @@ export function Dogs(breed) {
         temperaments = {dog.temperaments?.split(", ")}
         id = {dog.id}
         key = {dog.id}
-        origin = {dog.origin}/>
+        // origin = {dog.origin}
+        />
         
       ))
       }
