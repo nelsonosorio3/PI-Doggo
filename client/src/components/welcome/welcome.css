@@ -22,3 +22,15 @@
 #welcomeButton:hover{
   background-color: rgb(255, 248, 145);
 }
+
+@media only screen and (max-width: 730px) {
+  #welcomeButton{
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #welcomeButton{
+    font-size: x-small;
+  }
+}
